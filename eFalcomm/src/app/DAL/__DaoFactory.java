@@ -1,7 +1,6 @@
 package app.DAL;
 
 import app.Model.Account;
-import app.Model.Prueba;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
@@ -32,19 +31,11 @@ public class __DaoFactory {
         }
     }
 
-    // instantiate the dao
-    Dao<Prueba, String> accountDao = DaoManager.createDao((ConnectionSource) conn, Prueba.class);
-
-    public __DaoFactory() throws SQLException {
-
-    }
-
-    public static Dao getAccountDao() throws SQLException {
+    public Dao getAccountDao() throws SQLException {
         return DaoManager.createDao((ConnectionSource) conn, Account.class);
     }
 
-    public static Dao getPruebaDao() throws SQLException {
-        return DaoManager.createDao((ConnectionSource) conn, Prueba.class);
-    }
+
+
 
 }

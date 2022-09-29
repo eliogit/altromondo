@@ -17,6 +17,7 @@ public class AccountRepository implements IAccountRepository{
     @Override
     public void create(Account o) throws SQLException {
         __DaoFactory.getInstance().getAccountDao().create(o);
+
     }
 
     @Override

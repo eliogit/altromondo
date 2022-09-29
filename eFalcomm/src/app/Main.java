@@ -1,5 +1,6 @@
 package app;
 
+import app.DAL.__DaoFactory;
 import app.Model.Account;
 import app.Repository.__UnitOfWork;
 
@@ -17,6 +18,7 @@ public class Main {
         __UnitOfWork.getInstance().getAccountService().update(2l,b);
 
         System.out.println(__UnitOfWork.getInstance().getAccountService().findAll());
+
 
     }
 }
