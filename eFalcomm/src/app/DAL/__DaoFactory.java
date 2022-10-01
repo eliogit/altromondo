@@ -21,8 +21,8 @@ public class __DaoFactory {
         return instance;
     }
 
-    boolean creado1 = false;
-    boolean creado2 = false;
+//    boolean creado1 = false;
+//    boolean creado2 = false;
     static __DBContext context = new __DBContext();
 
     static ConnectionSource conn;

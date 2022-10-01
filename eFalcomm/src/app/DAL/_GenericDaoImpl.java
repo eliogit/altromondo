@@ -12,7 +12,6 @@ public class _GenericDaoImpl extends BaseDaoImpl<Object, Long> implements _Gener
     public _GenericDaoImpl(ConnectionSource connectionSource) throws SQLException {
         super(connectionSource, Object.class);
     }
-    // NOTE: this constructor is needed under Android in 4.30
     public _GenericDaoImpl(ConnectionSource connectionSource, DatabaseTableConfig<Object> tableConfig) throws SQLException
     {
         super(connectionSource, tableConfig);
