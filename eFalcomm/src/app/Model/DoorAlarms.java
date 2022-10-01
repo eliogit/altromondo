@@ -6,59 +6,60 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "DoorAlarms")
 public class DoorAlarms {
   @DatabaseField(generatedId = true )
-  private long id;
+  private int id;
   @DatabaseField
-  private long readerId;
-  @DatabaseField
-  private String doorLeftOpened;
-  @DatabaseField
-  private String doorForced;
-  @DatabaseField
-  private long alarmId;
+  private int readerId;
+  @DatabaseField(canBeNull = false)
+  private boolean doorLeftOpened;
+  @DatabaseField(canBeNull = false)
+  private boolean doorForced;
+
+  @DatabaseField(canBeNull = false, foreign = true, columnName="AlarmId")
+    private Alarms alarm;
 
 
-  public long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
 
-  public long getReaderId() {
+  public int getReaderId() {
     return readerId;
   }
 
-  public void setReaderId(long readerId) {
+  public void setReaderId(int readerId) {
     this.readerId = readerId;
   }
 
 
-  public String getDoorLeftOpened() {
+  public boolean getDoorLeftOpened() {
     return doorLeftOpened;
   }
 
-  public void setDoorLeftOpened(String doorLeftOpened) {
+  public void setDoorLeftOpened(boolean doorLeftOpened) {
     this.doorLeftOpened = doorLeftOpened;
   }
 
 
-  public String getDoorForced() {
+  public boolean getDoorForced() {
     return doorForced;
   }
 
-  public void setDoorForced(String doorForced) {
+  public void setDoorForced(boolean doorForced) {
     this.doorForced = doorForced;
   }
 
 
-  public long getAlarmId() {
-    return alarmId;
+  public Alarms getAlarms() {
+    return alarm;
   }
 
-  public void setAlarmId(long alarmId) {
-    this.alarmId = alarmId;
+  public void setAlarms(Alarms alarm) {
+    this.alarm = alarm;
   }
 
 }

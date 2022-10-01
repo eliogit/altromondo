@@ -1,119 +1,130 @@
 package app.Model;
 
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.field.types.DateTimeType;
 import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.Date;
 
 @DatabaseTable(tableName = "Alarms")
 public class Alarms {
   @DatabaseField(generatedId = true )
-  private long id;
+  private int id;
+  @DatabaseField(canBeNull = false)
+  private int clientId ;
+  @DatabaseField(canBeNull = false)
+  private int controllerId;
+  @DatabaseField(canBeNull = false)
+  private boolean tamperAlarm;
+  @DatabaseField(canBeNull = false)
+  private boolean batteryAlarm;
+  @DatabaseField(canBeNull = false)
+  private boolean acAlarm;
+  @DatabaseField(canBeNull = false)
+  private int confirmationCount;
   @DatabaseField
-  private long clientId;
+  private boolean confirmed;
   @DatabaseField
-  private long controllerId;
+  private boolean confirmationError;
   @DatabaseField
-  private String tamperAlarm;
-  @DatabaseField
-  private String batteryAlarm;
-  @DatabaseField
-  private String acAlarm;
-  @DatabaseField
-  private long confirmationCount;
-  @DatabaseField
-  private String confirmed;
-  @DatabaseField
-  private String confirmationError;
-  @DatabaseField
-  private java.sql.Timestamp timeStamp;
+  Date timeStamp;
 
+  @ForeignCollectionField(eager = false)
+  ForeignCollection<DoorAlarms> doorAlarms;
 
-  public long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
 
-  public long getClientId() {
+  public int getClientId() {
     return clientId;
   }
 
-  public void setClientId(long clientId) {
+  public void setClientId(int clientId) {
     this.clientId = clientId;
   }
 
 
-  public long getControllerId() {
+  public int getControllerId() {
     return controllerId;
   }
 
-  public void setControllerId(long controllerId) {
+  public void setControllerId(int controllerId) {
     this.controllerId = controllerId;
   }
 
 
-  public String getTamperAlarm() {
+  public boolean getTamperAlarm() {
     return tamperAlarm;
   }
 
-  public void setTamperAlarm(String tamperAlarm) {
+  public void setTamperAlarm(boolean tamperAlarm) {
     this.tamperAlarm = tamperAlarm;
   }
 
 
-  public String getBatteryAlarm() {
+  public boolean getBatteryAlarm() {
     return batteryAlarm;
   }
 
-  public void setBatteryAlarm(String batteryAlarm) {
+  public void setBatteryAlarm(boolean batteryAlarm) {
     this.batteryAlarm = batteryAlarm;
   }
 
 
-  public String getAcAlarm() {
+  public boolean getAcAlarm() {
     return acAlarm;
   }
 
-  public void setAcAlarm(String acAlarm) {
+  public void setAcAlarm(boolean acAlarm) {
     this.acAlarm = acAlarm;
   }
 
 
-  public long getConfirmationCount() {
+  public int getConfirmationCount() {
     return confirmationCount;
   }
 
-  public void setConfirmationCount(long confirmationCount) {
+  public void setConfirmationCount(int confirmationCount) {
     this.confirmationCount = confirmationCount;
   }
 
 
-  public String getConfirmed() {
+  public boolean getConfirmed() {
     return confirmed;
   }
 
-  public void setConfirmed(String confirmed) {
+  public void setConfirmed(boolean confirmed) {
     this.confirmed = confirmed;
   }
 
 
-  public String getConfirmationError() {
+  public boolean getConfirmationError() {
     return confirmationError;
   }
 
-  public void setConfirmationError(String confirmationError) {
+  public void setConfirmationError(boolean confirmationError) {
     this.confirmationError = confirmationError;
   }
 
 
-  public java.sql.Timestamp getTimeStamp() {
+  public Date getTimeStamp() {
     return timeStamp;
   }
 
-  public void setTimeStamp(java.sql.Timestamp timeStamp) {
+  public void setTimeStamp(Date timeStamp) {
     this.timeStamp = timeStamp;
   }
 
+  public ForeignCollection<DoorAlarms> getDoorAlarms() {
+    return doorAlarms;
+  }
 }

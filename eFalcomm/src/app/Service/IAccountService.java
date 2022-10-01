@@ -1,6 +1,7 @@
 package app.Service;
 
 import app.Model.Account;
+import app.Model.AccountDetails;
 
 import java.sql.SQLException;
 import java.util.List;

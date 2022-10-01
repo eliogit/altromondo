@@ -1,7 +1,9 @@
 package app.Model;
 
 import app.DAL._GenericDaoImpl;
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Account")
@@ -12,6 +14,10 @@ public class Account {
     private String name;
     @DatabaseField
     private String password;
+
+    @ForeignCollectionField(eager = false)
+    ForeignCollection<AccountDetails> lines;
+
     public Account() {
 // ORMLite needs a no-arg constructor
     }
@@ -38,4 +44,7 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setLines(ForeignCollection<AccountDetails> d){this.lines = d;}
+    public ForeignCollection<AccountDetails> getLines() { return lines;}
 }
